@@ -78,8 +78,6 @@ export default function Home() {
     fetchData();
   }, []);
 
-  console.log(tasks);
-
   return (
     <div className="">
       <div className="h-40 w-full bg-red-300">
@@ -115,12 +113,12 @@ export default function Home() {
               task.status === TASK_STATUS.DONE && "!bg-slate-400 "
             )}
           >
-            <div className="h-10 flex justify-between items-center">
+            <div
+              className="h-10 flex justify-between items-center"
+              onClick={() => updateTask(task)}
+            >
               <div className="flex">
-                <div
-                  className="w-10 text-center"
-                  onClick={() => deleteTask(task)}
-                >
+                <div className="w-10 text-center">
                   {task.status === TASK_STATUS.DONE && "\u2713"}
                 </div>
 
@@ -129,7 +127,6 @@ export default function Home() {
                     "pr-6",
                     task.status === TASK_STATUS.DONE && "!line-through"
                   )}
-                  onClick={() => updateTask(task)}
                 >
                   {task.title}
                 </span>
