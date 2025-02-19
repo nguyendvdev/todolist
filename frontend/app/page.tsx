@@ -38,6 +38,7 @@ export default function Home() {
 
     if (!res.ok) return;
 
+    setTitle("");
     fetchData();
   }
 
